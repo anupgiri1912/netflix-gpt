@@ -33,6 +33,8 @@
 - TMDB Image CDN URL
 - Made the Browse page amazing with Tailwind css
 - usePopular movie Custom hook
+- useUpcoming movie Custom hook
+- useTrending movie Custom hook
 
 
 
