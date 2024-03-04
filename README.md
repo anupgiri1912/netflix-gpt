@@ -35,6 +35,10 @@
 - usePopular movie Custom hook
 - useUpcoming movie Custom hook
 - useTrending movie Custom hook
+- GPT search Page
+- Gpt Search Bar
+- (FEATURE)Multi-language Feature in our App
+
 
 
 
