@@ -8,8 +8,8 @@ import { addGptMovieResult } from '../utils/gptSlice';
 const GptSearchBar = () => {
   const dispatch=useDispatch();
 const langKey =useSelector(store=>store.config.lang);
-const searchText =useRef(null );
-
+const searchText =useRef(null);
+ 
 
 //search movie in TMDB
 const searchMovieTMDB= async (movie) =>{
@@ -24,7 +24,8 @@ const json =data.json();
 
 
 const handleGptSearchClick = async () =>{
- console.log(searchText.current.value); 
+
+//console.log(searchText.current.value); 
  //Make an API call to GPT API and get Movie Results
      
  const gptQuery = "Act as a Movie Recommendation system and suggest some movies for the query :"
@@ -40,7 +41,7 @@ if(!gptResults.choices){
   //TODO: Write Error Handling
 }
 
-console.log(gptResults.choices?.[0]?.message?.content);
+//console.log(gptResults.choices?.[0]?.message?.content);
 //movie
  const gptMovies= gptResults.choices?.[0]?.message?.content.split(",");
 // For each movie I will search TMDB API
@@ -61,9 +62,12 @@ dispatch(addGptMovieResult({movieNames: gptMovies,   movieResults: tmdbResults})
         <form className='  w-full md:w-1/2  bg-black grid grid-cols-12'
         onSubmit={(e)=> e.preventDefault()}
         >
-      <input type="text"
+      <input
+       ref={searchText}
+       type="text"
       className='p-4 m-4 col-span-9'
-      placeholder={lang[langKey].gptSearchPlaceholder} />
+      placeholder={lang[langKey].gptSearchPlaceholder} 
+      />
       <button className='col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg'
      onClick={handleGptSearchClick}
      
