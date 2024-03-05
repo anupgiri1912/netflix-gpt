@@ -10,8 +10,12 @@ import GptSearch from './GptSearch';
 import { useSelector } from 'react-redux';
 
 const Browse = () => {
-const showGptsearch=useSelector(store => store.gpt.showGptsearch);
-//console.log("Anup",showGptsearch);
+  
+const showGptsearch=useSelector(store => store)
+//console.log(showGptsearch.gpt.showGptSearch);
+const sgs=showGptsearch .gpt.showGptSearch
+;
+
   useNowPlayingMovies()
    usePopularMovies();
   useUpcomingMovies();
@@ -20,22 +24,22 @@ useTrendingMovies();
 
     <div>
       <Header/>
-      {/* {
-        showGptsearch ?(<GptSearch/>) : (
+      {
+      sgs?(<GptSearch/>) : (
         <>
         <MainContainer/>
       <SecondaryContainer/>
         </>
         )
-       } */}
-        {
+       }
+        {/* {
         showGptsearch ? (
         <>
         <MainContainer/>
       <SecondaryContainer/>
         </>
         ):(<GptSearch/>) 
-       }
+       } */}
         
     </div>
   )
